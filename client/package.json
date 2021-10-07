@@ -11,9 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "formik": "^2.2.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hook-form": "^7.17.1",
+    "react-loader-spinner": "^4.0.0",
     "react-query": "^3.25.1",
     "react-query-devtools": "^3.0.0-beta.1",
     "yup": "^0.32.9"
@@ -32,3 +33,5 @@
     "webpack-dev-server": "^4.3.1"
   }
 }
+
+
