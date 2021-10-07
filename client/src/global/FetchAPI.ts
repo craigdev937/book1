@@ -39,7 +39,7 @@ async ({bid, ...data}: IBook): Promise<IBook> => {
 };
 
 export const deleteBook =
-async (bid: IBook): Promise<IBook> => {
+async (bid: number): Promise<IBook> => {
     const res: Response = await fetch(`${URL}/${bid}`, {
         method: "DELETE",
     });

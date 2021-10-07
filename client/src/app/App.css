@@ -1,5 +1,9 @@
 :root {
     --blue: #4682b4;
+    --orange: #f7836c;
+    --purple: #493657;
+    --white: #fff;
+    --black: #000;
 }
 
 *, *::before, *::after {
