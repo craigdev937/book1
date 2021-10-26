@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import { Todos } from "../containers/Todos";
+import { Routes } from "../page/Routes";
 
 export const App = () => {
     return (
         <React.Fragment>
-            <Todos />
+            <Routes />
         </React.Fragment>
     );
 };
