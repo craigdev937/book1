@@ -1,10 +1,23 @@
 import React from "react";
+import Loader from "react-loader-spinner";
+import { Link } from "react-router-dom";
+import { useQueryClient, useMutation } from "react-query";
+import { deleteBook } from "../global/FetchAPI";
+import { IBook } from "../models/IBook";
 
-export const Item = (): JSX.Element => {
+export const Item = 
+({ bid, title, author, info, amount }: IBook): JSX.Element => {
+    const queryClient = useQueryClient();
+    const { isLoading, mutateAsync } = useMutation(deleteBook);
+
+    const remove = async () => {
+        await mutateAsync(bid);
+        queryClient.invalidateQueries("books");
+    };
+
     return (
         <React.Fragment>
-            <h1>Item</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aperiam provident, tempore necessitatibus molestiae animi iste dicta eos nobis explicabo cupiditate excepturi veritatis officiis voluptate ratione soluta omnis temporibus magni.</p>
+            <Link to={`/update/${bid}`} {...title}></Link>
         </React.Fragment>
     );
 };

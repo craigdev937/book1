@@ -1,6 +1,7 @@
 import React from "react";
 import Loader from "react-loader-spinner";
 import { useQuery } from "react-query";
+import { Item } from "../containers/Item";
 import { fetchAllBooks } from "../global/FetchAPI";
 
 export const Books = (): JSX.Element => {
@@ -13,12 +14,14 @@ export const Books = (): JSX.Element => {
         <React.Fragment>
             <h1>Books</h1>
             {data?.map((book) => (
-                <main key={book.bid}>
-                    <h2>{book.title}</h2>
-                    <h3>by {book.author}</h3>
-                    <p>Synopsis, {book.info}</p>
-                    <p>${book.amount}</p>
-                </main>
+                <Item 
+                    bid={book.bid}
+                    title={book.title}
+                    author={book.author}
+                    info={book.info}
+                    amount={book.amount}
+                    published={book.published}
+                />
             ))}
         </React.Fragment>
     );
