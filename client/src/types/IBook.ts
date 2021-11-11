@@ -4,7 +4,8 @@ export interface IBook {
     author: string,
     info: string,
     amount: number,
-    published: boolean
+    published: boolean,
+    book?: IBook
 };
 
 // book: IBook,
