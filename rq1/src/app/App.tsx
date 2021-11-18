@@ -1,11 +1,18 @@
 import React from "react";
 import "./App.css";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query-devtools";
+import { Book } from "../container/Book"
+
+const RQClient = new QueryClient();
 
 export const App = (): JSX.Element => {
     return (
         <React.Fragment>
-            <h1>App</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi ratione modi quia. Beatae eius magnam ducimus placeat optio eligendi, explicabo consectetur, assumenda provident blanditiis vitae voluptas dicta ipsum nostrum animi?</p>
+            <QueryClientProvider client={RQClient}>
+                <Book />
+                <ReactQueryDevtools initialIsOpen={false} />
+            </QueryClientProvider>
         </React.Fragment>
     );
 };
