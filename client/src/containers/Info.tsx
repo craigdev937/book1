@@ -19,10 +19,12 @@ export const Info = ({book}: Props): JSX.Element => {
                 <h3>{book.author}</h3>
                 <p>{book.info}</p>
                 <p>{book.amount}</p>
-                <p>{book.published ? 
-                    "Published" : 
-                    "Not Published"}
-                </p>
+                <footer>
+                    <p>{book.published ? 
+                        "Published" : 
+                        "Not Published"}
+                    </p>
+                </footer>
             </main>
         </React.Fragment>
     );
