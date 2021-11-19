@@ -1,26 +1,30 @@
 import React from "react";
+import Loader from "react-loader-spinner";
+import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import { fetchAllBooks } from "../global/FetchAPI";
+import { Item } from "./Item";
 
 export const Book = (): JSX.Element => {
     const { isLoading, error, isError, data } = 
     useQuery("books", fetchAllBooks);
 
-    if (isLoading) return <aside>Loading...</aside>;
     if (isError) return <span>`${error}`</span>;
-
+    if (isLoading) return <Loader type="ThreeDots" 
+                                color="#fff" 
+                                height={30} />;
+    
     return (
         <React.Fragment>
+            <aside>
+                <Link to="/create">Create a Book</Link>
+            </aside>
+            <hr />
             {data && data.map((book) => (
-                <main key={book.bid}>
-                    <h2>{book.title}</h2>
-                    <p>{book.author}</p>
-                    <p>{book.info}</p>
-                    <p>Age {book.amount}</p>
-                    <p>{book.published ? "Published" 
-                        : "Unpublished"}
-                    </p>
-                </main>
+                <Item 
+                    key={book.bid}
+                    book={book}
+                />
             ))}
         </React.Fragment>
     );

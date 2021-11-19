@@ -44,9 +44,9 @@ async ({bid, ...data}: IBook): Promise<IBook> => {
 };
 
 export const deleteBook =
-async (bid: IBook): Promise<IBook> => {
+async (book: IBook): Promise<IBook> => {
     const res: Response = 
-    await fetch(`${URL}/${bid}`, {
+    await fetch(`${URL}/${book.bid}`, {
         method: "DELETE",
     });
     if (!res.ok) throw new Error("Couldn't fetch data");

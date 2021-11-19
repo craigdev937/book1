@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query-devtools";
-import { Book } from "../container/Book"
+import { Main } from "../pages/Main";
 
 const RQClient = new QueryClient();
 
@@ -10,7 +10,7 @@ export const App = (): JSX.Element => {
     return (
         <React.Fragment>
             <QueryClientProvider client={RQClient}>
-                <Book />
+                <Main />
                 <ReactQueryDevtools initialIsOpen={false} />
             </QueryClientProvider>
         </React.Fragment>
